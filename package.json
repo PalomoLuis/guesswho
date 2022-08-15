@@ -1,0 +1,15 @@
+{
+  "name": "guesswho",
+  "version": "1.0.0",
+  "description": "Guess Who is a game app where you need to find the matches.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "async"
+  ],
+  "author": "Luis Palomo",
+  "license": "ISC"
+}
