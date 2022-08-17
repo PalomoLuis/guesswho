@@ -1,18 +1,38 @@
+import { Home } from './modules/home/index.js'
+import { creaEl } from './modules/functions/functions.js'
 import './css/style.css';
-import Icon from './images/img_3208906.png'
+// import Icon from './images/img_3208906.png'
 
 function component() {
-    const element = document.createElement('div');
+    const mainE = creaEl('main', ['main_container', 'flex_center'])
+    const gsap = creaEl('script')
+    gsap.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js'
 
-    element.innerHTML = "Hello World!";
-    element.classList.add('hello');
+    /* App here*/
+    const home = new Home({
+      logo: 'Guess Who',
+      cta: 'Start'
+    })
+    home.createTemplate(mainE)
 
-    const myIcon = new Image();
-    myIcon.src = Icon;
+
+
+    /* End of app */
+    let parts = [mainE, gsap]
   
-    element.appendChild(myIcon);
-  
-    return element;
+    return parts;
   }
+
+function headHTML() {
+  const materialize = creaEl('link')
+  materialize.rel = 'stylesheet'
+  materialize.href = 'https://fonts.googleapis.com/icon?family=Material+Icons'
+
+  return materialize
+}
+
+let bodyParts = component()
   
-  document.body.appendChild(component());
+  document.head.appendChild(headHTML())
+  document.body.appendChild(bodyParts[0])
+               .appendChild(bodyParts[1]);
