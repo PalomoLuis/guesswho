@@ -2,15 +2,20 @@ import './home.css';
 
 class Home {
     constructor(config) {
-        this.config = config
+        this.config = config;
+    }
+
+    startGame = () => {
+        this.config.callback()
     }
 
     createTemplate = (father) => {
         father.innerHTML = this.template()
         window.onload = () => { 
             let btnStart = document.getElementById('start_game');
-            btnStart.addEventListener('click', this.validateInput);
-
+            btnStart.addEventListener('click', (e) => {
+                this.validateInput(e)
+            });
             this.arrowLevels()
         }
     }
@@ -18,11 +23,15 @@ class Home {
     arrowLevels = () => {
         const btnUp = document.getElementById('level_up');
         const btnDown = document.getElementById('level_down');
-        btnUp.addEventListener('click', this.levelUp)
-        btnDown.addEventListener('click', this.levelDown)
+        btnUp.addEventListener('click', (e) => {
+            this.levelUp(e)
+        })
+        btnDown.addEventListener('click', (e) => {
+            this.levelDown(e)
+        })
     }
     
-    levelUp = () => {
+    levelUp = (e) => {
         let inputLevel = document.querySelector('#input_level');
         let level = inputLevel.value;
 
@@ -30,10 +39,10 @@ class Home {
             let lvl = parseInt(level) + 1
             inputLevel.value = lvl
         }
-        this.validateInput()
+        this.validateInput(e)
     }
 
-    levelDown = () => {
+    levelDown = (e) => {
         let inputLevel = document.querySelector('#input_level');
         let level = inputLevel.value;
 
@@ -41,22 +50,45 @@ class Home {
             let lvl = parseInt(level) - 1
             inputLevel.value = lvl
         }
-        this.validateInput()
+        this.validateInput(e)
     }
 
-    validateInput = () => {
+    validateInput = (e) => {
         let inputLevel = document.querySelector('#input_level');
         let level = inputLevel.value;
         if(level > 9) {
             inputLevel.value = 9
-        }
-        if (level < 1) {
+            return false
+        } else if (level < 1) {
             inputLevel.value = 1
-        }
-        if (level.search(/[^\a-z\s]/)) {
+            return false
+        } else if (level.search(/[^\a-z\s]/)) {
             inputLevel.value = 1
             this.showError('Uh! Write only a number')
             console.log('Write a number')
+            return false
+        } else {
+            if(e.target.id === 'start_game') {
+                this.startGame()
+            }
+            return true
+        }
+    }
+
+    validateInput2 = () => {
+        let inputLevel = document.querySelector('#input_level');
+        let level = inputLevel.value;
+        if(level > 9) {
+            inputLevel.value = 9
+            return false
+        } else if (level < 1) {
+            inputLevel.value = 1
+            return false
+        } else if (level.search(/[^\a-z\s]/)) {
+            inputLevel.value = 1
+            this.showError('Uh! Write only a number')
+            console.log('Write a number')
+            return false
         }
     }
 
