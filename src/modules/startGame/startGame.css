@@ -1,3 +1,67 @@
+.game_container {
+    flex-direction: column;
+}
+
 .game_container h2 {
     color: var(--white);
 }
+
+.game_cards_cont {
+    background-color: var(--white);
+    border-radius: var(--size-m);
+    padding: var(--size-m);
+}
+
+.game_cards_cont ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    /* grid-template-columns: repeat(5, 1fr); */
+    gap: var(--size-xs);
+}
+
+.game_cards_cont li.pokecard {
+    list-style: none;
+    padding: var(--size-xxs);
+    border-radius: var(--size-s);
+    border: 2px var(--blue-light) solid;
+    width: 96px;
+    height: 96px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.game_cards_cont li.pokecard img {
+    width: 96px;
+    height: 96px;
+    pointer-events: none;
+}
+.game_cards_cont li.pokecard .cover_card {
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background-color: var(--blue-light);
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    pointer-events: none;
+}
+
+.game_cards_cont .cover_card_icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.game_cards_cont li.pokecard:hover .cover_card {
+    background-color: var(--white);
+    transition: 200ms ease;
+}
+.game_cards_cont li.pokecard:hover .cover_card_icon {
+    color: var(--blue-light);
+}
+

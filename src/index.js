@@ -1,6 +1,6 @@
 import { Home } from './modules/home/index.js'
 import { StartGame } from './modules/startGame/index.js';
-import { creaEl } from './modules/functions/functions.js'
+import { creaEl } from './modules/functions/functions.js';
 import './css/style.css';
 // import Icon from './images/img_3208906.png'
 
@@ -42,4 +42,4 @@ let bodyParts = component()
   
   document.head.appendChild(headHTML())
   document.body.appendChild(bodyParts[0])
-               .appendChild(bodyParts[1]);
+  document.body.appendChild(bodyParts[1]);
