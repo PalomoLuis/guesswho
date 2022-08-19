@@ -2,6 +2,7 @@ import { Home } from './modules/home/index.js'
 import { StartGame } from './modules/startGame/index.js';
 import { creaEl } from './modules/functions/functions.js';
 import './css/style.css';
+import faviconImg from './images/favicon.png';
 // import Icon from './images/img_3208906.png'
 
 function component() {
@@ -35,11 +36,18 @@ function headHTML() {
   materialize.rel = 'stylesheet'
   materialize.href = 'https://fonts.googleapis.com/icon?family=Material+Icons'
 
-  return materialize
+  const favicon = creaEl('link')
+  favicon.rel = 'icon'
+  favicon.type = 'image/x-icon'
+  favicon.href = faviconImg
+
+  return [materialize, favicon]
 }
 
+let headParts = headHTML()
 let bodyParts = component()
   
-  document.head.appendChild(headHTML())
+  document.head.appendChild(headParts[1])
+  document.head.appendChild(headParts[0])
   document.body.appendChild(bodyParts[0])
   document.body.appendChild(bodyParts[1]);
