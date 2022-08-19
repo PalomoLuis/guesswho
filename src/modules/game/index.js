@@ -35,9 +35,9 @@ class Game {
             // pokechecked = 1
             this.pokechecked = 1
 
-            console.log("saved cards: " + this.savedCards)
-            console.log("pokemon checked : " + this.pokechecked)
-            console.log("targets : " + this.targets)
+            // console.log("saved cards: " + this.savedCards)
+            // console.log("pokemon checked : " + this.pokechecked)
+            // console.log("targets : " + this.targets)
         } else if (this.pokechecked === 1) {
             //show card 2
             gsap.to(`.${targetClass} .cover_card`, { duration: .5, top: '-110%' })
@@ -57,6 +57,10 @@ class Game {
                 if(this.oportunities === 0) {
                     //if oportunities === 0
                     //win game tempalte
+
+                    /*
+                        WIN PART HERE:
+                    */
                     console.log('You won!!!')
                 } else {
                     //else
@@ -74,9 +78,9 @@ class Game {
                 //pokechecked = 0
                 this.pokechecked = 0
             }
-            console.log("saved cards: " + this.savedCards)
-            console.log("pokemon checked : " + this.pokechecked)
-            console.log("targets : " + this.targets)
+            // console.log("saved cards: " + this.savedCards)
+            // console.log("pokemon checked : " + this.pokechecked)
+            // console.log("targets : " + this.targets)
 
             this.targets[0].style.pointerEvents = 'initial';
             this.savedCards = []
