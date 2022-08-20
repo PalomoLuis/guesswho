@@ -1,0 +1,54 @@
+.win_container {
+    position: relative;
+    width: min(700px, 90vw);
+    height: min(270px, 70vw);
+    opacity: 0;
+}
+
+.win_container h1 {
+    color: var(--white);
+    font-size: min(var(--size-xl), 14vw);
+    line-height: min(var(--size-xl), 14vw);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.win_container .sub-section {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--size-s);
+}
+
+.win_container .sub-section h2 {
+    font-size: min(var(--size-m), 6vw);
+    margin: 0;
+    color: var(--blue-light);
+    background-color: var(--white);
+    padding: var(--size-s) var(--size-m);
+    border-radius: var(--size-m);
+}
+
+.win_container .sub-section i {
+    color: var(--white);
+    font-size: min(var(--size-l), 10vw);
+}
+.win_container .sub-section .star_1 {
+    animation: rotations 3s linear infinite reverse;
+}
+.win_container .sub-section .star_2 {
+    animation: rotations 3s linear infinite normal;
+}
+
+@keyframes rotations {
+    0% { transform: rotate(0) scale(0.8);}
+    50% { transform: rotate(180deg) scale(1.3);}
+    100% { transform:  rotate(360deg) scale(0.8);}
+    
+}
