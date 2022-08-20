@@ -1,4 +1,5 @@
 import './game.css';
+import { Win } from '../win/index.js';
 
 class Game {
     constructor (level) {
@@ -57,11 +58,19 @@ class Game {
                 if(this.oportunities === 0) {
                     //if oportunities === 0
                     //win game tempalte
+                    let main = document.querySelector('.main_container');
+                    let winGame = new Win({
+                        father: main, message: ['You Win', 'Congratulations!']
+                    });
+                    let actualContent = main.firstElementChild
+                    let timing = 1.5
+                    gsap.to(actualContent, { duration: timing, opacity: 0, ease: Power2.easeIn })
+                    setTimeout(winGame.winPage, timing * 1000 + 300)
+                    // winGame.winPage();
 
                     /*
                         WIN PART HERE:
                     */
-                    console.log('You won!!!')
                 } else {
                     //else
                     //pokechecked = 0
